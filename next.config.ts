@@ -8,6 +8,12 @@ export default withSentryConfig(nextConfig, {
   // source map upload) in the environment / your CI provider.
   org: process.env.SENTRY_ORG,
   project: process.env.SENTRY_PROJECT,
-  silent: !process.env.CI,
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+
   widenClientFileUpload: true,
+
+  // Proxy Sentry requests through the app to dodge ad-blockers.
+  tunnelRoute: "/monitoring",
+
+  silent: !process.env.CI,
 });
