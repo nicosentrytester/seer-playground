@@ -17,8 +17,7 @@ const CLIENT_ERRORS: ClientError[] = [
     value: "typeerror",
     label: "Client · TypeError — read property of null",
     run: () => {
-      const obj = null as unknown as { deep: { value: number } };
-      console.log(obj.deep.value);
+      throw new TypeError("Demo: cannot read .deep of null");
     },
   },
   {
